@@ -21,8 +21,7 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne(mappedBy = "user")
-   @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+   @OneToOne(cascade=CascadeType.ALL)
    private Car car;
 
    public User() {}
@@ -69,9 +68,8 @@ public class User {
       return car;
    }
 
-   public Car setCar(Car car) {
+   public void setCar(Car car) {
       this.car = car;
-      return car;
    }
 
    @Override
